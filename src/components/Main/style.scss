@@ -1,0 +1,60 @@
+.main-top {
+  height: 500px;
+  width: 100%;
+  padding-top: 200px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.38) 100%), url('/static/Main/annie-spratt-604126-unsplash-min.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  border-radius: 10px;
+  color: #fff;
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Montserrat', serif;
+    user-select: none;
+  }
+
+  &__subtitle {
+    margin-bottom: 50px;
+    font-size: 25px;
+    letter-spacing: .02px;
+    font-family: 'Montserrat', serif;
+    user-select: none;
+  }
+}
+
+.main-bottom {
+  padding: 30px 0 100px;
+
+  &__section {
+    margin-bottom: 70px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    letter-spacing: .02px;
+    font-weight: 500;
+    color: #1B1B1B;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__extra {
+    width: 270px;
+    height: 270px;
+    text-align: center;
+    line-height: 270px;
+    font-size: 20px;
+    color: #334062;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    cursor: pointer;
+  }
+}
