@@ -34,6 +34,35 @@
     background-color: #334062;
     cursor: pointer;
   }
+
+  &__account {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__edit {
+    width: 170px;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: #4CA1AF;
+  }
+
+  &__signout {
+    margin-right: 10px;
+    line-height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+  }
 }
 
 .sidebar {

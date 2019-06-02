@@ -5,7 +5,7 @@ import Footer from '../../Footer';
 import Editor from './Editor';
 import Messages from '../Messages';
 
-export default class AccountStudent extends React.Component {
+export default class AccountCompany extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -21,18 +21,18 @@ export default class AccountStudent extends React.Component {
 
 	render() {
 		const view = this.state.view === 'profile'
-			? <Editor {...this.props}/>
+			? <Editor currentUser={this.props.currentUser} updateUser={this.props.updateUser} {...this.props}/>
 			: <Messages/>;
 		return (<div className='account'>
 				<Header {...this.props} styles={{boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.1)'}}/>
 				<div className="container account__container">
 					<div className="account__header">
 						<label className={`account__header-item ${this.state.view === 'profile' ? 'active' : ''}`}>
-							Мой профиль
+							Профиль
 							<input type='radio' name='toggle' value="profile" onClick={this.onViewChange} />
 						</label>
 						<label className={`account__header-item ${this.state.view === 'messages' ? 'active' : ''}`}>
-							Мои сообщения
+							Сообщения
 							<input type='radio' name='toggle' value="messages" onClick={this.onViewChange} />
 						</label>
 					</div>

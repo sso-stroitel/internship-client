@@ -1,0 +1,133 @@
+.account {
+  padding-top: 50px;
+
+  &__container {
+    padding: 10px 0 30px;
+    background-color: #fff;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+
+    &-item {
+      &:first-child {
+        margin-right: 10px;
+      }
+      font-size: 20px;
+      user-select: none;
+      color: rgba(47, 47, 47, 0.5);;
+      cursor: pointer;
+      transition: color .3s ease;
+      &.active {
+        color: #2F2F2F;
+      }
+
+      input {
+        position: absolute;
+        top: -9999px;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: #1F1F1F;
+  }
+
+  &__body {
+    padding: 50px 100px 70px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  &__col {
+    width: 370px;
+  }
+
+  &__file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    height: 50px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    color: #F5F5F5;
+    background-color: #334062;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      background: url("/static/Account/upload.svg") no-repeat center;
+      width: 23px;
+      height: 23px;
+      margin-right: 7px;
+      background-size: contain;
+    }
+
+    input {
+      position: absolute;
+      top: -999px;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__submit {
+    width: 170px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #4CA1AF;
+    cursor: pointer;
+  }
+
+  &__messages {
+    width: 100%;
+    height: 80vh;
+    padding: 50px 100px 50px;
+  }
+
+  &__message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    width: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  &__company, &__text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #1F1F1F;
+  }
+
+  &__company {
+    width: 150px;
+  }
+
+  &__text {
+    flex-grow: 1;
+  }
+
+  &__date {
+    width: 150px;
+  }
+}

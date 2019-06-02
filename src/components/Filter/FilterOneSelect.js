@@ -8,15 +8,13 @@ const style = () => ({
 	},
 });
 
-const FilterSelect = (props) => {
-	const {classes, name, title, data, value, onSelectChange, mult=true} = props;
-	const values = Array.isArray(value) ? value : [value];
+const FilterOneSelect = (props) => {
+	const {classes, name, title, data, value, onSelectChange} = props;
 	return <FormControl variant='outlined' className={classes.formControl}>
 		<InputLabel htmlFor="select-multiple">{title}</InputLabel>
 		<Select
 			onChange={onSelectChange}
-			multiple
-			value={values}
+			value={value}
 			input={
 				<OutlinedInput
 					labelWidth={170}
@@ -32,4 +30,4 @@ const FilterSelect = (props) => {
 	</FormControl>
 };
 
-export default withStyles(style, { withTheme: true })(FilterSelect);
+export default withStyles(style, { withTheme: true })(FilterOneSelect);

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Input} from '../FormControls/Input'
-import fetch from 'isomorphic-fetch';
 import { Link } from 'react-router-dom';
 
 
@@ -15,18 +14,20 @@ export default class Sidebar extends React.Component {
 
 	onSubmit = (ev) => {
 		ev.preventDefault();
-		fetch('http://localhost:3000/auth/signin', {
-			method: 'post',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			},
-			body: JSON.stringify({
-				email: this.state.email,
-				password: this.state.pass,
+		const data = {
+			email: this.state.email,
+			password: this.state.pass,
+		};
+		const authType = this.props.signUp ? "signup" : "signin";
+		this.props
+			.onAuth(authType, data)
+			.then(() => {
+				this.props.history.push("/");
+				window.location.reload()
 			})
-		}).then(res => res.json())
-			.then(json => console.log(json))
+			.catch(() => {
+				return;
+			});
 	};
 
 	onInputChange = ({target}) => {

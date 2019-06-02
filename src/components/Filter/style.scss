@@ -16,7 +16,19 @@
     align-items: center;
   }
 
+  &__hiddenBox {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+
+    &:checked + label {
+      background-color: #00bdcb;
+      color: #fff;
+    }
+  }
+
   &__btn {
+    position: relative;
     background-color: #fff;
     padding: 5px 10px;
     font-size: 16px;
@@ -25,6 +37,8 @@
     border-radius: 10px;
     color: #292929;
     cursor: pointer;
+    user-select: none;
+    transition: all .3s ease;
   }
 
   &__toggle {
