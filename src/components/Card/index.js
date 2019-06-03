@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 
 export const Card = (props) => (
-	<div className='card'>
+	<div className='card' onClick={props.onCardClick}>
 		<div className="card__logo-wrap">
 			<img className="card__logo" src={props.img}/>
 		</div>

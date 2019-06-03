@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../Header'
 import Footer from '../Footer';
+import './style.scss';
 
-export default
-const ArticleList = (props) => {
+export const ArticleList = (props) => {
 	return (<div className='article-list'>
-			<Header/>
+			<Header {...props}/>
 			<div className="article-list__body container">
 				<div className="article-list__title">Статьи</div>
 				<div className="article-list__grid">

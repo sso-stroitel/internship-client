@@ -7,6 +7,8 @@ import Footer from '../Footer';
 import axios from 'axios';
 import connect from 'react-redux/es/connect/connect';
 import {dispatchFilter} from '../../store/actions/filter';
+import {Popup} from './Popup';
+import {Loader} from '../Loader';
 
 class Main extends React.Component {
 	constructor(props) {
@@ -14,6 +16,9 @@ class Main extends React.Component {
 		this.state = {
 			jobs: [],
 			headSpecs: [],
+			isPopupOpen: false,
+			popupData: {},
+			extendBtn: false
 		}
 	}
 
@@ -67,10 +72,36 @@ class Main extends React.Component {
 		}))
 	};
 
+	onCardClick = (data) => {
+		this.setState({
+			isPopupOpen: true,
+			popupData: data
+		});
+	};
+
+	onPopupClose = () => {
+		this.setState({
+			isPopupOpen: false
+		})
+	};
+
+	onCallBack = () => {
+		console.log('click')
+	};
+
+	onExtendClick = () => {
+		this.setState({
+			extendBtn: true
+		})
+	};
+
 	render() {
 		const {dispatchFilter, filter} = this.props;
 		let filteredData = this.onFilter(filter);
-		filteredData = filteredData.filter(job => (this.state.headSpecs.includes(job.spec) || !this.state.headSpecs.length))
+		filteredData = filteredData.filter(job => (this.state.headSpecs.includes(job.spec) || !this.state.headSpecs.length));
+		if (filteredData.length > 8 && !this.state.extendBtn) {
+			filteredData = filteredData.slice(0, 7);
+		}
 		return <div>
 			<Header {...this.props}/>
 			<div className="main-top">
@@ -81,14 +112,17 @@ class Main extends React.Component {
 				</div>
 			</div>
 			<div className="main-bottom container">
-				<div className="main-bottom__section">
-					<div className="main-bottom__title">Новые вакансии</div>
-					<div className="main-bottom__list">
-						{filteredData.map((job, idx) => <Card key={idx} title={job.name} company={job.company}
-																									img={job.companyImg}/>)}
-						{filteredData.length > 8 ? <div className="main-bottom__extra">Посмотреть еще</div> : ''}
+				{this.state.jobs.length
+				? <div className="main-bottom__section">
+						<div className="main-bottom__title">Новые вакансии</div>
+						<div className="main-bottom__list">
+							{filteredData.map((job, idx) => <Card onCardClick={() =>this.onCardClick(job)} key={idx} title={job.name} company={job.company}
+																										img={job.companyImg}/>)}
+							{filteredData.length < 8 && !this.state.extendBtn ? <div onClick={this.onExtendClick} className="main-bottom__extra">Посмотреть еще</div> : ''}
+						</div>
 					</div>
-				</div>
+				: <Loader />}
+				<Popup isOpen={this.state.isPopupOpen} onSubmit={this.onCallBack} data={this.state.popupData} onClose={this.onPopupClose}/>
 			</div>
 			<Footer/>
 		</div>

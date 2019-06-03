@@ -7,6 +7,7 @@ import {authUser, updateUser} from "./store/actions/auth";
 import {removeError} from "./store/actions/errors";
 import AccountStudent from './components/Account/Student';
 import AccountCompany from './components/Account/Company';
+import { ArticleList } from './components/Articles/ArticlesList';
 
 
 const App = props => {
@@ -28,9 +29,9 @@ const App = props => {
 			return (<AccountCompany currentUser={currentUser} updateUser={updateUser} {...props}/>)
 		}
 		}/>
-		{/*<Route path='/job/:id' render={props => {*/}
-			{/*return (< />)*/}
-		{/*}} />*/}
+		<Route path='/articles' render={props => {
+			return (<ArticleList currentUser={currentUser} {...props}/>)
+		}} />
 	</div>)
 };
 

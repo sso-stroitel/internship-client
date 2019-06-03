@@ -8,7 +8,7 @@
   letter-spacing: .02px;
   background-color: #fff;
 
-  &:first-child {
+  &:not(:nth-last-child(-n+4)) {
     margin-bottom: 30px;
   }
 

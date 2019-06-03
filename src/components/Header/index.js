@@ -36,7 +36,9 @@ class Header extends React.Component {
 			: <div className="header__login" onClick={this.onToggle}>{this.state.sidebarOpen ? 'Закрыть' : 'Войти'}</div>;
 		return <div className='header' style={styles}>
 			<div className="container">
-				<div className="header__item">Полезные статьи</div>
+				<Link to='/articles'>
+					<div className="header__item">Полезные статьи</div>
+				</Link>
 				<div className="header__item">Образовательные учреждения</div>
 				{btn}
 				<Sidebar {...this.props} isOpen={this.state.sidebarOpen}/>

@@ -13,6 +13,8 @@ module.exports = {
 		modules: [path.resolve(__dirname, 'src'), 'node_modules']
 	},
 	devServer: {
+		publicPath: '/',
+		historyApiFallback: true,
 		contentBase: path.join(__dirname,'src')
 	},
 	module: {

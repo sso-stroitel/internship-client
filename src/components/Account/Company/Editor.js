@@ -8,6 +8,7 @@ import Switch from '@material-ui/core/Switch/Switch';
 import {schedule, spec, area, city, salary} from '../../../services/jobData';
 import {apiCall} from '../../../services/api';
 import FilterOneSelect from '../../Filter/FilterOneSelect';
+import axios from 'axios';
 
 const inputStyles = {
 	boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.5)',
@@ -47,8 +48,9 @@ export default class Editor extends React.Component {
 	};
 
 	componentDidMount = () => {
+		this.axiosCancelSource = axios.CancelToken.source()
 		const self = this;
-		apiCall('post', 'https://blooming-earth-65020.herokuapp.com/get/employee', {email: 'spa'}).then(function (res) {
+		apiCall('post', 'https://blooming-earth-65020.herokuapp.com/get/employee', {email: self.props.currentUser.user.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
 			self.setState({
 				company: res.company,
 				area: res.area,
@@ -59,6 +61,10 @@ export default class Editor extends React.Component {
 		}).catch(function (err) {
 			console.log(err)
 		})
+	}
+
+	componentWillUnmount() {
+		this.axiosCancelSource.cancel('Component unmounted.');
 	}
 
 	handleClose = () => {
@@ -150,7 +156,7 @@ export default class Editor extends React.Component {
 					<DialogContent style={{overflowY: 'unset'}}>
 						<input value={this.state.jobName} onChange={this.onInputChange} type='text' name='jobName' className="filter__title"
 									 placeholder='Название вакансии'/>
-						<textarea value={this.state.jobDescription} onChange={this.onInputChange} name='jobDescription' className='filter__description'
+						<textarea contentEditable='true' value={this.state.jobDescription} onChange={this.onInputChange} name='jobDescription' className='filter__description'
 											placeholder='Описание вакансии'/>
 						<div className="filter__bottom-row">
 							<FilterOneSelect  onSelectChange={this.onSelectChange} value={this.state.jobSpec} data={spec} name='jobSpec'
