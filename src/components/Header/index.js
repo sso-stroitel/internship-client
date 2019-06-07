@@ -29,8 +29,9 @@ class Header extends React.Component {
 		const { currentUser, styles } = this.props;
 		let company;
 		if (currentUser.user) {
-			company = currentUser.user.user && currentUser.user.user.company;
+			company = currentUser.user.company;
 		}
+		console.log(company)
 		const btn = currentUser.isAuthenticated
 			?	<div className='header__account'><div className="header__signout" onClick={this.onSignOut}>Выйти</div><Link to={company ? '/company/' : '/student/'}><div className="header__edit">Личный кабинет</div></Link></div>
 			: <div className="header__login" onClick={this.onToggle}>{this.state.sidebarOpen ? 'Закрыть' : 'Войти'}</div>;

@@ -60,6 +60,7 @@ class Registration extends React.Component {
 				.onAuth(authType, data)
 				.then(() => {
 					this.props.history.push("/");
+					window.location.reload();
 				})
 				.catch(() => {
 					return;

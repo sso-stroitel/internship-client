@@ -23,7 +23,6 @@ export function logout() {
 
 export function authUser(type, userData) {
 	return dispatch => {
-		// wrap our thunk in a promise so we can wait for the API call
 		return new Promise((resolve, reject) => {
 			return apiCall("post", `https://blooming-earth-65020.herokuapp.com/auth/${type}`, userData)
 				.then(({token, ...user}) => {

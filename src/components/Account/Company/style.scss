@@ -206,16 +206,6 @@
   }
 
   &__bottom {
-    display: none;
-    width: 820px;
-    margin: 0 auto;
-    background: #D8D8D8;
-    box-shadow: 0 2px 4px rgba(132, 132, 132, 0.25);
-    border-radius: 0 0 5px 5px;
-
-    &.is-open {
-      display: block;
-    }
 
     &-container {
       width: 570px;

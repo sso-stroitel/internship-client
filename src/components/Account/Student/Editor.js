@@ -8,7 +8,7 @@ const inputStyles = {
 export default class Editor extends React.Component {
 	constructor(props) {
 		super(props)
-		this.student = props.currentUser.user.user;
+		this.student = props.currentUser.user;
 		this.state = {
 			firstName: this.student.firstName || '',
 			secondName: this.student.lastName || '',

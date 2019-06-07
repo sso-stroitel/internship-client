@@ -50,7 +50,7 @@ export default class Editor extends React.Component {
 	componentDidMount = () => {
 		this.axiosCancelSource = axios.CancelToken.source()
 		const self = this;
-		apiCall('post', 'https://blooming-earth-65020.herokuapp.com/get/employee', {email: self.props.currentUser.user.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
+		apiCall('post', 'https://blooming-earth-65020.herokuapp.com/get/employee', {email: self.props.currentUser.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
 			self.setState({
 				company: res.company,
 				area: res.area,
@@ -103,7 +103,7 @@ export default class Editor extends React.Component {
 
 	onSave = () => {
 		const savedData = {
-			email: this.props.currentUser.user.user.email,
+			email: this.props.currentUser.user.email,
 			company: this.state.company,
 			area: this.state.area,
 			phone: this.state.phone,

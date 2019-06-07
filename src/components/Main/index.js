@@ -15,10 +15,11 @@ class Main extends React.Component {
 		super(props)
 		this.state = {
 			jobs: [],
+			filteredJobs: [],
 			headSpecs: [],
 			isPopupOpen: false,
 			popupData: {},
-			extendBtn: false
+			extendBtn: false,
 		}
 	}
 

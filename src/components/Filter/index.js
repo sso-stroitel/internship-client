@@ -103,6 +103,7 @@ export default class Filter extends React.Component {
 						<FilterOneSelect onSelectChange={this.onSelectChange} value={this.state.created} data={postTimeData} name='created' title='Время размещения'/>
 					</div>
 					<div className="filter__bottom-title">График работы</div>
+					// TODO state
 					<div className="filter__bottom-row">
 						<FilterCheckbox onCheckChange={this.onCheckChange} name='full' checked={this.state.full} label='Полный день'/>
 						<FilterCheckbox onCheckChange={this.onCheckChange} name='part' checked={this.state.part} label='Сменный график'/>
