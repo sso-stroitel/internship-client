@@ -2,34 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9874cd5-920d-435d-8cb7-9d1a44938dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Articles/articleData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/Articles/article2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/Articles/article3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/Articles/articles.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account/Company/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/Company/Editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account/Company/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/Company/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account/Student/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/Student/Editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Articles/ArticlesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Articles/ArticlesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Articles/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Articles/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Filter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Filter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Registration/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Registration/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Footer/call.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/call.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Footer/instagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/instagram.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Footer/mail.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/mail.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Footer/twitter-logo-silhouette.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/twitter-logo-silhouette.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Footer/vk-social-network-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/vk-social-network-logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/Main/controls.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Main/controls.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -100,7 +78,7 @@
           <entry key="json" value="106" />
           <entry key="scss" value="5846" />
           <entry key="svg" value="41" />
-          <entry key="txt" value="46" />
+          <entry key="txt" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -108,7 +86,7 @@
           <entry key="HTML" value="34" />
           <entry key="JSON" value="106" />
           <entry key="JavaScript" value="26303" />
-          <entry key="PLAIN_TEXT" value="78" />
+          <entry key="PLAIN_TEXT" value="92" />
           <entry key="SCSS" value="5846" />
           <entry key="SVG" value="41" />
         </counts>
@@ -360,6 +338,19 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Footer" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -451,7 +442,7 @@
       <workItem from="1559638158506" duration="11589000" />
       <workItem from="1559740218523" duration="15000" />
       <workItem from="1559751227883" duration="1152000" />
-      <workItem from="1559832603553" duration="9472000" />
+      <workItem from="1559832603553" duration="10195000" />
     </task>
     <task id="LOCAL-00001" summary="Base commit">
       <created>1558183772849</created>
@@ -481,11 +472,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559577377935</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="change webpack">
+      <created>1559919100016</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1559919100016</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175728000" />
+    <option name="totallyTimeSpent" value="176451000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,7 +528,8 @@
     <MESSAGE value="Base commit" />
     <MESSAGE value="Filter commit" />
     <MESSAGE value="filter fix commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter fix commit" />
+    <MESSAGE value="change webpack" />
+    <option name="LAST_COMMIT_MESSAGE" value="change webpack" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Select/SelectInput.d.ts">
