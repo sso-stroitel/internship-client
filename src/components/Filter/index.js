@@ -1,11 +1,11 @@
 import React from 'react';
 import './style.scss';
-import FilterSelect from './FilterSelect';
+import FilterSelect from '../FormControls/Select/FilterSelect';
 import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
 import Switch from '@material-ui/core/Switch/Switch';
-import {FilterCheckbox} from './FilterCheckbox';
+import {FilterCheckbox} from '../FormControls/CheckBox/FilterCheckbox';
 import { schedule as dataSchedule, spec as dataSpec, area as dataArea, city as dataCity, salary as dataSalary, postTime as postTimeData } from '../../services/jobData';
-import FilterOneSelect from './FilterOneSelect';
+import FilterOneSelect from '../FormControls/Select/FilterOneSelect';
 
 export default class Filter extends React.Component {
 	constructor(props) {

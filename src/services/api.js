@@ -10,13 +10,12 @@ export function setTokenHeader(token) {
 
 export function apiCall(method, path, data) {
 	return new Promise((resolve, reject) => {
-		console.log(method, data, 'apicall')
 		return axios[method.toLowerCase()](path, data)
 			.then(res => {
 				return resolve(res.data);
 			})
 			.catch(err => {
-				return reject(err.response.data.error);
+				return reject(err.response);
 			});
 	});
 }

@@ -12,6 +12,10 @@
     margin-bottom: 30px;
   }
 
+  &:not(:nth-child(4n)) {
+    margin-right: 30px;
+  }
+
   &__logo {
     max-height: 100px;
     max-width: 100%;

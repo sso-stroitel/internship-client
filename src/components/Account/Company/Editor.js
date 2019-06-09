@@ -2,13 +2,14 @@ import React from 'react';
 import {Input} from '../../FormControls/Input';
 import Button from '@material-ui/core/Button';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
-import FilterSelect from '../../Filter/FilterSelect';
+import FilterSelect from '../../FormControls/Select/FilterSelect';
 import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
 import Switch from '@material-ui/core/Switch/Switch';
 import {schedule, spec, area, city, salary} from '../../../services/jobData';
 import {apiCall} from '../../../services/api';
-import FilterOneSelect from '../../Filter/FilterOneSelect';
+import FilterOneSelect from '../../FormControls/Select/FilterOneSelect';
 import axios from 'axios';
+import {ROOT_API} from '../../../services/constants';
 
 const inputStyles = {
 	boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.5)',
@@ -20,13 +21,13 @@ export default class Editor extends React.Component {
 		this.state = {
 			isOpen: false,
 			isPaid: false,
+			isDisabledInput: true,
 			company: '',
 			area: '',
 			phone: '',
 			companyImg: '',
 			jobName: '',
 			jobDescription: '',
-			email: '',
 			jobSpec: '',
 			jobArea: '',
 			jobCity: '',
@@ -48,15 +49,15 @@ export default class Editor extends React.Component {
 	};
 
 	componentDidMount = () => {
-		this.axiosCancelSource = axios.CancelToken.source()
+		this.axiosCancelSource = axios.CancelToken.source();
 		const self = this;
-		apiCall('post', 'https://blooming-earth-65020.herokuapp.com/get/employee', {email: self.props.currentUser.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
+		apiCall('post', `${ROOT_API}get/employee`, {email: self.props.currentUser.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
 			self.setState({
 				company: res.company,
 				area: res.area,
 				phone: res.phone,
 				companyImg: res.companyImg,
-				email: res.email,
+				isDisabledInput: false
 			})
 		}).catch(function (err) {
 			console.log(err)
@@ -84,9 +85,9 @@ export default class Editor extends React.Component {
 			schedule: this.state.jobSchedule,
 			company: this.state.company,
 			companyImg: this.state.companyImg,
-			email: this.state.email
+			email: this.props.currentUser.user.email
 		};
-		apiCall("post", `https://blooming-earth-65020.herokuapp.com/api/postjob`, postData)
+		apiCall("post", `${ROOT_API}api/postjob`, postData);
 
 		this.setState({
 			jobName: '',
@@ -130,13 +131,13 @@ export default class Editor extends React.Component {
 				<form className='account__form'>
 					<div className="account__col">
 						<div className="account__title">Информация о компании</div>
-						<Input label='Наименование организации' inputStyle={inputStyles} name='company' value={this.state.company}
+						<Input disabled={this.state.isDisabledInput} label='Наименование организации' inputStyle={inputStyles} name='company' value={this.state.company}
 									 onChange={this.onInputChange}/>
-						<Input label='Сфера деятельности' inputStyle={inputStyles} name='area' value={this.state.area}
+						<Input disabled={this.state.isDisabledInput} label='Сфера деятельности' inputStyle={inputStyles} name='area' value={this.state.area}
 									 onChange={this.onInputChange}/>
-						<Input label='Контактный номер' inputStyle={inputStyles} name='phone' value={this.state.phone}
+						<Input disabled={this.state.isDisabledInput} label='Контактный номер' inputStyle={inputStyles} name='phone' value={this.state.phone}
 									 onChange={this.onInputChange}/>
-						<Input label='Логотип компании' inputStyle={inputStyles} name='companyImg' value={this.state.companyImg}
+						<Input disabled={this.state.isDisabledInput} label='Логотип компании' inputStyle={inputStyles} name='companyImg' value={this.state.companyImg}
 									 onChange={this.onInputChange}/>
 					</div>
 					<div className="account__col">

@@ -30,7 +30,7 @@ const App = props => {
 		}
 		}/>
 		<Route path='/articles' render={props => {
-			return (<ArticleList currentUser={currentUser} {...props}/>)
+			return (<ArticleList currentUser={currentUser} errors={errors} {...props}/>)
 		}} />
 	</div>)
 };

@@ -8,7 +8,8 @@ export default class Sidebar extends React.Component {
 		super(props);
 		this.state = {
 			email: '',
-			pass: ''
+			pass: '',
+			showError: false,
 		}
 	}
 
@@ -24,9 +25,12 @@ export default class Sidebar extends React.Component {
 			.then(() => {
 				this.props.history.push("/");
 				window.location.reload()
+				this.setState({showError: false})
 			})
 			.catch(() => {
-				return;
+				if (this.props.errors.message.status === 400) {
+					this.setState({showError: true})
+				}
 			});
 	};
 
@@ -39,6 +43,7 @@ export default class Sidebar extends React.Component {
 	render() {
 		return <div className={`sidebar ${this.props.isOpen ? 'is-open' : ''}`}>
 			<form onSubmit={this.onSubmit}>
+				<div className={this.state.showError ? 'show-error' : 'show-error-hidden'}>Неправильный email или пароль</div>
 				<Input label='Email' onChange={this.onInputChange} value={this.state.email} style={{color: '#fff', marginBottom: '30px', fontSize: '18px'}} name='email'/>
 				<Input label='Пароль' type='password' onChange={this.onInputChange} value={this.state.pass} style={{color: '#fff', marginBottom: '30px', fontSize: '18px'}} name='pass'/>
 				<button type='submit' className='login'>Войти</button>

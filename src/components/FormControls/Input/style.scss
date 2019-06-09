@@ -10,4 +10,19 @@
   padding: 10px;
   font-size: 15px;
   color: #2D2D2D;
+
+  &:disabled {
+    background-color: #f0f0f0;
+  }
+}
+
+.validation-text {
+  display: block;
+  color: red;
+  font-size: 10px;
+  height: 10px;
+
+  &:before {
+    content: "\200b";
+  }
 }

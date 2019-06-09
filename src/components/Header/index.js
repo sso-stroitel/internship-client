@@ -31,12 +31,12 @@ class Header extends React.Component {
 		if (currentUser.user) {
 			company = currentUser.user.company;
 		}
-		console.log(company)
 		const btn = currentUser.isAuthenticated
 			?	<div className='header__account'><div className="header__signout" onClick={this.onSignOut}>Выйти</div><Link to={company ? '/company/' : '/student/'}><div className="header__edit">Личный кабинет</div></Link></div>
 			: <div className="header__login" onClick={this.onToggle}>{this.state.sidebarOpen ? 'Закрыть' : 'Войти'}</div>;
 		return <div className='header' style={styles}>
 			<div className="container">
+				<Link to='/'><div className="header__logo" /></Link>
 				<Link to='/articles'>
 					<div className="header__item">Полезные статьи</div>
 				</Link>

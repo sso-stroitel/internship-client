@@ -1,6 +1,7 @@
 import {apiCall, setTokenHeader} from "../../services/api";
 import {SET_CURRENT_USER} from "../actionTypes";
 import {addError, removeError} from "./errors";
+import {ROOT_API} from '../../services/constants';
 
 export function setCurrentUser(user) {
 	return {
@@ -24,7 +25,7 @@ export function logout() {
 export function authUser(type, userData) {
 	return dispatch => {
 		return new Promise((resolve, reject) => {
-			return apiCall("post", `https://blooming-earth-65020.herokuapp.com/auth/${type}`, userData)
+			return apiCall("post", `${ROOT_API}auth/${type}`, userData)
 				.then(({token, ...user}) => {
 					localStorage.setItem("jwtToken", token);
 					setAuthorizationToken(token);
@@ -33,7 +34,7 @@ export function authUser(type, userData) {
 					resolve(); // indicate that the API call succeeded
 				})
 				.catch(err => {
-					dispatch(addError(err.message));
+					dispatch(addError(err));
 					reject(); // indicate the API call failed
 				});
 		});
@@ -43,7 +44,7 @@ export function authUser(type, userData) {
 export function updateUser(type, userData) {
 	return dispatch => {
 		return new Promise((resolve, reject) => {
-			return apiCall("put", `https://blooming-earth-65020.herokuapp.com/update/${type}`, userData)
+			return apiCall("put", `${ROOT_API}update/${type}`, userData)
 				.then(({...user}) => {
 					resolve();
 				})

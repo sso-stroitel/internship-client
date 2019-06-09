@@ -9,6 +9,7 @@ import connect from 'react-redux/es/connect/connect';
 import {dispatchFilter} from '../../store/actions/filter';
 import {Popup} from './Popup';
 import {Loader} from '../Loader';
+import {ROOT_API} from '../../services/constants';
 
 class Main extends React.Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ class Main extends React.Component {
 
 	componentDidMount = () => {
 		const self = this;
-		axios.get('https://blooming-earth-65020.herokuapp.com/get/jobs').then(function (res) {
+		axios.get(`${ROOT_API}get/jobs`).then(function (res) {
 			self.setState({
 				jobs: res.data
 			})
@@ -100,6 +101,7 @@ class Main extends React.Component {
 		const {dispatchFilter, filter} = this.props;
 		let filteredData = this.onFilter(filter);
 		filteredData = filteredData.filter(job => (this.state.headSpecs.includes(job.spec) || !this.state.headSpecs.length));
+
 		if (filteredData.length > 8 && !this.state.extendBtn) {
 			filteredData = filteredData.slice(0, 7);
 		}
@@ -119,7 +121,7 @@ class Main extends React.Component {
 						<div className="main-bottom__list">
 							{filteredData.map((job, idx) => <Card onCardClick={() =>this.onCardClick(job)} key={idx} title={job.name} company={job.company}
 																										img={job.companyImg}/>)}
-							{filteredData.length < 8 && !this.state.extendBtn ? <div onClick={this.onExtendClick} className="main-bottom__extra">Посмотреть еще</div> : ''}
+							{filteredData.length === 7 && !this.state.extendBtn ? <div onClick={this.onExtendClick} className="main-bottom__extra">Посмотреть еще</div> : ''}
 						</div>
 					</div>
 				: <Loader />}

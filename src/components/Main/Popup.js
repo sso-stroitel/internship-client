@@ -20,7 +20,7 @@ export const Popup = (props) => {
 					Назад
 				</Button>
 				<Button onClick={onSubmit} color="primary">
-					Разместить
+					Откликнуться
 				</Button>
 			</DialogActions>
 		</Dialog>

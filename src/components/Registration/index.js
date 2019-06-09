@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.scss';
 import {Input} from '../FormControls/Input';
+import {validationText} from '../../services/validation'
+import {RegHeader} from './RegHeader';
+
 
 class Registration extends React.Component {
 	constructor(props) {
@@ -9,13 +12,20 @@ class Registration extends React.Component {
 			isStudent: true,
 			email: '',
 			pass: '',
-			repeatPass: '',
 			firstName: '',
 			lastName: '',
 			study: '',
 			company: '',
 			area: '',
-			spec: ''
+			isErrorShow: false,
+			validEmail: '',
+			validPass: '',
+			validFirstName: '',
+			validLastName: '',
+			validStudy: '',
+			validCompany: '',
+			validArea: '',
+			validSpec: '',
 		}
 	}
 
@@ -24,13 +34,21 @@ class Registration extends React.Component {
 			isStudent: !prevState.isStudent,
 			email: '',
 			pass: '',
-			repeatPass: '',
 			firstName: '',
 			lastName: '',
 			study: '',
 			company: '',
 			area: '',
-			spec: ''
+			spec: '',
+			isErrorShow: false,
+			validEmail: '',
+			validPass: '',
+			validFirstName: '',
+			validLastName: '',
+			validStudy: '',
+			validCompany: '',
+			validArea: '',
+			validSpec: '',
 		}))
 
 	};
@@ -38,6 +56,24 @@ class Registration extends React.Component {
 	onInputChange = ({target}) => {
 		this.setState({
 			[target.name]: target.value
+		}, ()=>{
+			if (this.state.isErrorShow) {
+				this.validText();
+			}
+		});
+	};
+
+	validText = () => {
+		const {email, pass, firstName, lastName, study, spec, company, area} = this.state;
+		this.setState({
+			validPass: pass.length < 6 ? validationText.wrongPassword : '',
+			validEmail: !/\S+@\S+\.\S+/.test(email) ? validationText.wrongEmail : '',
+			validFirstName: this.state.isStudent && firstName.length < 1 ? validationText.requiredField : '',
+			validLastName: this.state.isStudent && lastName.length < 1 ? validationText.requiredField : '',
+			validStudy: this.state.isStudent && study.length < 1 ? validationText.requiredField : '',
+			validSpec: !this.state.isStudent && spec.length < 1 ? validationText.requiredField : '',
+			validCompany: !this.state.isStudent && company.length < 1 ? validationText.requiredField : '',
+			validArea: !this.state.isStudent && area.length < 1  ? validationText.requiredField : '',
 		})
 	};
 
@@ -48,9 +84,9 @@ class Registration extends React.Component {
 				isStudent: this.state.isStudent,
 				email: this.state.email,
 				password: this.state.pass,
-				...(this.state.firstName && {firstName: this.state.firstName }),
+				...(this.state.firstName && {firstName: this.state.firstName}),
 				...(this.state.lastName && {lastName: this.state.lastName}),
-				...(this.state.studyPlace && {studyPlace: this.state.study}),
+				...(this.state.study && {studyPlace: this.state.study}),
 				...(this.state.spec && {spec: this.state.spec}),
 				...(this.state.company && {company: this.state.company}),
 				...(this.state.area && {area: this.state.area})
@@ -69,9 +105,13 @@ class Registration extends React.Component {
 	};
 
 	isValid = () => {
-		const {email, pass, repeatPass} = this.state;
-		if (pass !== repeatPass && !pass && !email) {
-			return false
+		this.setState({
+			isErrorShow: true
+		});
+		this.validText();
+		const {email, pass} = this.state;
+		if (!/\S+@\S+\.\S+/.test(email) || pass.length < 6 ) {
+			return 'INVALID'
 		}
 		if (this.state.isStudent) {
 			return this.studentValid() ? 'VALID' : 'INVALID';
@@ -86,26 +126,34 @@ class Registration extends React.Component {
 	};
 
 	companyValid = () => {
-		const { area, company } = this.state;
+		const {area, company} = this.state;
 		return !!(area && company);
 	};
 
 	render() {
 		let extraThirdField, extraFourthField;
 		const extraFirstField = this.state.isStudent
-			? <Input label='Учебное заведение' onChange={this.onInputChange} value={this.state.study} name='study'/>
+			? <Input validText={this.state.validStudy} label='Учебное заведение' onChange={this.onInputChange}
+							 value={this.state.study} name='study'/>
 			:
-			<Input label='Наименование организации' name='company' onChange={this.onInputChange} value={this.state.company}/>;
+			<Input validText={this.state.validCompany} label='Наименование организации' name='company'
+						 onChange={this.onInputChange} value={this.state.company}/>;
 		const extraSecondField = this.state.isStudent
-			? <Input label='Специальность (если есть)' name='spec' onChange={this.onInputChange} value={this.state.spec}/>
-			: <Input label='Сфера деятельности' name='area' onChange={this.onInputChange} value={this.state.area}/>;
+			? <Input validText={this.state.validFirstName} label='Имя' name='firstName' onChange={this.onInputChange}
+							 value={this.state.firstName}/>
+			:
+			<Input validText={this.state.validArea} label='Сфера деятельности' name='area' onChange={this.onInputChange}
+						 value={this.state.area}/>;
 		if (this.state.isStudent) {
 			extraThirdField =
-				<Input label='Имя' name='firstName' onChange={this.onInputChange} value={this.state.firstName}/>;
+				<Input validText={this.state.validLastName} label='Фамилия' name='lastName' onChange={this.onInputChange}
+							 value={this.state.lastName}/>;
 			extraFourthField =
-				<Input label='Фамилия' name='lastName' onChange={this.onInputChange} value={this.state.lastName}/>;
+				<Input label='Специальность (если есть)' name='spec'
+							 onChange={this.onInputChange} value={this.state.spec}/>
 		}
 		return <div className='registration'>
+			<RegHeader />
 			<form onSubmit={this.onSubmit} className="registration__form">
 				<div className="registration__choices">
 					<div>
@@ -119,10 +167,10 @@ class Registration extends React.Component {
 						<label htmlFor="reg-employee" className="registration__employee">Я работодатель</label>
 					</div>
 				</div>
-				<Input label='Email' name='email' onChange={this.onInputChange} value={this.state.email}/>
-				<Input label='Пароль' name='pass' type='password' onChange={this.onInputChange} value={this.state.pass}/>
-				<Input label='Повторите пароль' type='password' name='repeatPass' onChange={this.onInputChange}
-							 value={this.state.repeatPass}/>
+				<Input validText={this.state.validEmail} label='Email' name='email' onChange={this.onInputChange}
+							 value={this.state.email}/>
+				<Input validText={this.state.validPass} label='Пароль' name='pass' type='password'
+							 onChange={this.onInputChange} value={this.state.pass}/>
 				{extraFirstField}
 				{extraSecondField}
 				{extraThirdField}

@@ -8,11 +8,21 @@
   font-size: 18px;
   background-color: #fff;
 
+  &__logo {
+    display: inline-block;
+    width: 84px;
+    height: 50px;
+    margin-right: 20px;
+    background: url("/static/Header/photo_2019-06-07 23.11.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &__item {
     display: inline-block;
     height: 100%;
     padding: 0 30px;
     text-align: center;
+    vertical-align: top;
     color: #334062;
     transition: all .3s ease;
     cursor: pointer;
@@ -69,9 +79,11 @@
   display: block;
   position: absolute;
   right: -450px;
+  top: 50px;
+  line-height: 1.8;
   width: 440px;
   height: 1000px;
-  padding: 50px;
+  padding: 20px 50px;
   background-color: #2C3754;
   transition: right .5s ease;
   z-index: 999;
@@ -97,4 +109,22 @@
     color: #4CA1AF;
     background-color: #EFEFEF;
   }
+}
+
+.show-error,
+.show-error-hidden {
+  color: #fff;
+  border: solid 2px red;
+  font-size: 15px;
+  text-align: center;
+  line-height: 27px;
+  height: 30px;
+  width: 100%;
+  background-color: indianred;
+  opacity: 1;
+}
+
+.show-error-hidden {
+  visibility: hidden;
+  opacity: 0;
 }
