@@ -47,6 +47,11 @@
     justify-content: flex-start;
   }
 
+  &__empty {
+    text-align: center;
+    font-size: 20px;
+  }
+
   &__extra {
     width: 270px;
     height: 270px;

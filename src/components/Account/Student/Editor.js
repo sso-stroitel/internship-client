@@ -66,7 +66,14 @@ export default class Editor extends React.Component {
 	};
 
 	onFileChange =({target}) => {
-		console.log(target.files)
+		let fileFormData = new FormData();
+		fileFormData.append('file', target.files[0]);
+		axios.post(`${ROOT_API}files`, fileFormData).then((data)=>{
+			console.log(data)
+		}).catch(err=> {
+			console.log(err)
+		})
+		// console.log(target.files[0])
 	}
 
 	render() {

@@ -5,6 +5,7 @@
 
   &__contacts {
     display: flex;
+    margin-bottom: 20px;
     align-items: center;
     justify-content: flex-end;
   }
@@ -20,5 +21,61 @@
     width: 40px;
     height: 40px;
     margin: 0 20px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+  }
+
+  &__social {
+    display: flex;
+  }
+
+  &__vk,
+  &__inst,
+  &__tw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    &:last-child {
+      margin-right: 0
+    }
+  }
+
+  &__vk {
+    &:before {
+      content: "";
+      background: url("/static/Footer/vk.svg") no-repeat center;
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+    }
+  }
+
+  &__inst {
+    &:before {
+      content: "";
+      background: url("/static/Footer/instagram.svg") no-repeat center;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__tw {
+    &:before {
+      content: "";
+      background: url("/static/Footer/twitter-logo-silhouette.svg") no-repeat center;
+      width: 30px;
+      height: 30px;
+    }
   }
 }

@@ -117,7 +117,7 @@ class Main extends React.Component {
 			<div className="main-bottom container">
 				{this.state.jobs.length
 				? <div className="main-bottom__section">
-						<div className="main-bottom__title">Новые вакансии</div>
+							{!filteredData.length ? <div className='main-bottom__empty'>Нет подходящих вакансий</div> : <div className="main-bottom__title">Новые вакансии</div>}
 						<div className="main-bottom__list">
 							{filteredData.map((job, idx) => <Card onCardClick={() =>this.onCardClick(job)} key={idx} title={job.name} company={job.company}
 																										img={job.companyImg}/>)}

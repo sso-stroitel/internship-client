@@ -4,6 +4,7 @@
   &__container {
     padding: 10px 0 30px;
     background-color: #fff;
+    min-height: calc(100vh - 185px - 50px);
   }
 
   &__header {
