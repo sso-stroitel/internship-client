@@ -20,7 +20,9 @@ export default class Editor extends React.Component {
 			phone: '',
 			study: '',
 			spec: '',
-			year: ''
+			year: '',
+			photo: '',
+			isCV: false
 		}
 	}
 
@@ -37,6 +39,8 @@ export default class Editor extends React.Component {
 				study: res.studyPlace,
 				spec: res.spec,
 				year: res.year,
+				isCV: res.CV,
+				photo: res.photo,
 				isDisabledInput: false
 			})
 		}).catch(function (err) {
@@ -49,14 +53,21 @@ export default class Editor extends React.Component {
 	}
 
 	onSave = () => {
+		const { firstName, secondName, thirdName, birthDate, phone, study, spec, year, photo } = this.state;
 		const savedData = {
-			firstName: this.state.company,
-			secondName: this.state.area,
-			phone: this.state.phone,
-			companyImg: this.state.companyImg,
+			email: this.props.currentUser.user.email,
+			firstName,
+			lastName: secondName,
+			thirdName,
+			birthDate,
+			phone,
+			studyPlace: study,
+			spec,
+			photo,
+			year
 		};
 
-		this.props.updateUser('employee', savedData)
+		this.props.updateUser('student', savedData)
 	};
 
 	onInputChange = ({target}) => {
@@ -67,16 +78,32 @@ export default class Editor extends React.Component {
 
 	onFileChange =({target}) => {
 		let fileFormData = new FormData();
-		fileFormData.append('file', target.files[0]);
-		axios.post(`${ROOT_API}files`, fileFormData).then((data)=>{
-			console.log(data)
+		const file = new File([target.files[0]], this.props.currentUser.user.email, {type: target.files[0].type});
+		fileFormData.append('file', file);
+		axios.post(`${ROOT_API}file`, fileFormData).then(() => {
+			this.props.updateUser('student', {CV: true, email: this.props.currentUser.user.email});
+			this.setState({
+				isCV: true
+			})
 		}).catch(err=> {
 			console.log(err)
 		})
-		// console.log(target.files[0])
-	}
+	};
+
+	getFile = (ev) => {
+		ev.preventDefault();
+		axios.post(`${ROOT_API}getFile`, {fileName: this.props.currentUser.user.email}).then(({data})=> {
+			window.open(data.url, '_blank');
+		}).catch(err=> {
+			console.log(err)
+		})
+	};
 
 	render() {
+		const CV = <div className='account__success-upload'>
+			Резюме загружено
+			<button onClick={this.getFile} />
+		</div>;
 		return (<div className="account__body">
 				<form className='account__form'>
 					<div className="account__col">
@@ -92,11 +119,15 @@ export default class Editor extends React.Component {
 						<Input disabled={this.state.isDisabledInput} label='Специальность (если есть)' inputStyle={inputStyles} name='spec' value={this.state.spec}
 									 onChange={this.onInputChange}/>
 						<Input disabled={this.state.isDisabledInput} label='Курс/класс' name='year' inputStyle={inputStyles} value={this.state.year} onChange={this.onInputChange}/>
+						<Input disabled={this.state.isDisabledInput} label='Фото' name='photo' inputStyle={inputStyles} value={this.state.photo} onChange={this.onInputChange}/>
 					</div>
 					<div className="account__col">
 						<div className="account__title">Резюме</div>
+						{this.state.isCV
+							? CV
+							: ''}
 						<label className='account__file'>
-							Загрузить
+							{this.state.isCV ? 'Обновить' : 'Загрузить'}
 							<input onChange={this.onFileChange} type="file" name='cv'/>
 						</label>
 					</div>

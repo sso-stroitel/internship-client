@@ -33,7 +33,7 @@ class Main extends React.Component {
 		}).catch(function (err) {
 			console.log(err)
 		})
-	}
+	};
 
 	onFilter(filter) {
 		if (!filter.filter) {
@@ -52,10 +52,10 @@ class Main extends React.Component {
 				&& (data.city.includes(job.city) || !data.city.length)) {
 				if (job.description.includes(data.text) || job.name.includes(data.text)) {
 					if (!(data.full || data.part || data.flex || data.remote)
-						|| (data.full && sched.full === job.schedule)
-						|| (data.part && sched.part === job.schedule)
-						|| (data.flex && sched.flex === job.schedule)
-						|| (data.remote && sched.remote === job.schedule)) {
+						|| (data.full && 'full' === job.schedule)
+						|| (data.part && 'part' === job.schedule)
+						|| (data.flex && 'flex' === job.schedule)
+						|| (data.remote && 'remote' === job.schedule)) {
 						if (!(data.salary.length)
 							|| (data.salary && data.salary.includes(Math.round(job.salary/10000) + ''))
 					&& (!data.created || new Date(job.created) > postDate[data.created])) {

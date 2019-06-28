@@ -2,7 +2,8 @@ import React from 'react';
 import Header from '../Header'
 import Footer from '../Footer';
 import './style.scss';
-import {articleData} from './articleData';
+import {gridArticles, listArticles} from './articleData';
+import {Link} from 'react-router-dom';
 
 export const ArticleList = (props) => {
 	return (<div className='article-list'>
@@ -10,35 +11,22 @@ export const ArticleList = (props) => {
 		<div className="article-list__body container">
 			<div className="article-list__title">Статьи</div>
 			<div className="article-list__grid">
-				<div className="article-list__grid-col">
-					<div className="article-list__grid-item">
+				{gridArticles.map(article => (
+					<Link to={`/articles/grid/${article.id}/`} className="article-list__grid-item" key={article.id}>
 						<div className="article-list__grid-img"
-								 style={{backgroundImage: 'url("https://www.experience.com/wp-content/uploads/2018/06/StockSnap_72ZCJJ8K6I-741x486.jpg")'}}/>
-						<div className="article-list__grid-name">Десять самых часто задаваемых вопросов на интервью</div>
-					</div>
-				</div>
-				<div className="article-list__grid-col">
-					<div style={{marginBottom: '10px'}} className="article-list__grid-item">
-						<div className="article-list__grid-img"
-								 style={{backgroundImage: 'url("https://www.experience.com/wp-content/uploads/2017/06/notes-macbook-study-conference-e1501776033145-1068x531.jpg")'}}/>
-						<div className="article-list__grid-name">Правила структуризации резюме</div>
-					</div>
-					<div className="article-list__grid-item">
-						<div className="article-list__grid-img"
-								 style={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2017/07/31/11/46/people-2557585_960_720.jpg")'}}/>
-						<div className="article-list__grid-name">Первая встреча с коллегами</div>
-					</div>
-				</div>
+								 style={{backgroundImage: `url(${article.img})`}}/>
+						<div className="article-list__grid-name">{article.title}</div>
+					</Link>))}
 			</div>
 			<div className="article-list__list">
-				{articleData.map(article => (
-					<div className="article-list__list-item">
+				{listArticles.map(article => (
+					<div className="article-list__list-item" key={article.id}>
 						<div className="article-list__item-img" style={{backgroundImage: `url(${article.img})`}}>
-							<div className="article-list__item-info">
-								<div className="article-list__item-name">{article.title}</div>
-								<div className="article-list__item-text">{article.text}</div>
-								<div className="article-list__item-btn">Читать</div>
-							</div>
+						</div>
+						<div className="article-list__item-info">
+							<div className="article-list__item-name">{article.title}</div>
+							<div className="article-list__item-text">{article.text}</div>
+							<Link to={`/articles/list/${article.id}/`} className="article-list__item-btn">Читать</Link>
 						</div>
 					</div>
 				))}
