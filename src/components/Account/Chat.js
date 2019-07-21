@@ -27,9 +27,9 @@ export class Chat extends React.Component {
 		const { message } = this.props;
 		const self = this;
 		axios.post(`${ROOT_API}message/post`, {
-			email: message.to,
+			email: message.from,
 			message: self.state.text,
-			recEmail: message.from,
+			recEmail: message.to,
 			firstName: message.firstName,
 			lastName: message.lastName,
 			company: message.company
