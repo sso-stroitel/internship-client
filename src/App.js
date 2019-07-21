@@ -10,6 +10,7 @@ import AccountCompany from './components/Account/Company';
 import { ArticleList } from './components/Articles/ArticlesList';
 import {Article} from './components/Articles/Article';
 import Students from './components/Students';
+import 'react-quill/dist/quill.snow.css';
 
 
 const App = props => {

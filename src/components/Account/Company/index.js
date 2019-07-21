@@ -22,7 +22,7 @@ export default class AccountCompany extends React.Component {
 	render() {
 		const view = this.state.view === 'profile'
 			? <Editor currentUser={this.props.currentUser} updateUser={this.props.updateUser} {...this.props}/>
-			: <Messages/>;
+			: <Messages isStudent={false} currentUser={this.props.currentUser} {...this.props}/>;
 		return (<div className='account'>
 				<Header {...this.props} styles={{boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.1)'}}/>
 				<div className="container account__container">

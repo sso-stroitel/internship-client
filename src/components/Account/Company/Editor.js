@@ -10,6 +10,7 @@ import {apiCall} from '../../../services/api';
 import FilterOneSelect from '../../FormControls/Select/FilterOneSelect';
 import axios from 'axios';
 import {ROOT_API} from '../../../services/constants';
+import ReactQuill from 'react-quill';
 
 const inputStyles = {
 	boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.5)',
@@ -26,6 +27,7 @@ export default class Editor extends React.Component {
 			area: '',
 			phone: '',
 			companyImg: '',
+			jobs: [],
 			jobName: '',
 			jobDescription: '',
 			jobSpec: '',
@@ -51,12 +53,13 @@ export default class Editor extends React.Component {
 	componentDidMount = () => {
 		this.axiosCancelSource = axios.CancelToken.source();
 		const self = this;
-		apiCall('post', `${ROOT_API}get/employee`, {email: self.props.currentUser.user.email}, { cancelToken: this.axiosCancelSource.token }).then(function (res) {
+		apiCall('post', `${ROOT_API}get/employee`, {email: self.props.currentUser.user.email}, {cancelToken: this.axiosCancelSource.token}).then(function (res) {
 			self.setState({
 				company: res.company,
 				area: res.area,
 				phone: res.phone,
 				companyImg: res.companyImg,
+				...(res.jobs && {jobs: res.jobs}),
 				isDisabledInput: false
 			})
 		}).catch(function (err) {
@@ -96,8 +99,9 @@ export default class Editor extends React.Component {
 			jobArea: '',
 			jobCity: '',
 			jobSalary: '',
-			jobSchedule: ''
-		})
+			jobSchedule: '',
+			jobs: [...this.state.jobs, postData]
+		});
 
 		this.handleClose();
 	};
@@ -126,22 +130,48 @@ export default class Editor extends React.Component {
 		})
 	}
 
+	onDescriptionChange = (value) => {
+		this.setState({
+			jobDescription: value
+		})
+	};
+
+	onDeleteJob = (id, _id) => e => {
+		const self = this;
+		apiCall('delete', `${ROOT_API}api/deleteJob`, {data: {id: id,_id: _id, email: self.props.currentUser.user.email}}).then(function (res) {
+			console.log(res)
+		});
+		this.setState({
+			jobs: this.state.jobs.filter(job => job._id !== _id)
+		})
+	};
+
 	render() {
 		return (<div className="account__body">
 				<form className='account__form'>
 					<div className="account__col">
 						<div className="account__title">Информация о компании</div>
-						<Input disabled={this.state.isDisabledInput} label='Наименование организации' inputStyle={inputStyles} name='company' value={this.state.company}
+						<Input disabled={this.state.isDisabledInput} label='Наименование организации' inputStyle={inputStyles}
+									 name='company' value={this.state.company}
 									 onChange={this.onInputChange}/>
-						<Input disabled={this.state.isDisabledInput} label='Сфера деятельности' inputStyle={inputStyles} name='area' value={this.state.area}
+						<Input disabled={this.state.isDisabledInput} label='Сфера деятельности' inputStyle={inputStyles} name='area'
+									 value={this.state.area}
 									 onChange={this.onInputChange}/>
-						<Input disabled={this.state.isDisabledInput} label='Контактный номер' inputStyle={inputStyles} name='phone' value={this.state.phone}
+						<Input disabled={this.state.isDisabledInput} label='Контактный номер' inputStyle={inputStyles} name='phone'
+									 value={this.state.phone}
 									 onChange={this.onInputChange}/>
-						<Input disabled={this.state.isDisabledInput} label='Логотип компании' inputStyle={inputStyles} name='companyImg' value={this.state.companyImg}
+						<Input disabled={this.state.isDisabledInput} label='Логотип компании' inputStyle={inputStyles}
+									 name='companyImg' value={this.state.companyImg}
 									 onChange={this.onInputChange}/>
 					</div>
 					<div className="account__col">
 						<div className="account__title">Вакансии</div>
+						{this.state.jobs.map((job, id) => (
+							<div className='account__jobs' key={id}>
+								{job.name}
+								<span onClick={this.onDeleteJob(job.id, job._id)}>x</span>
+							</div>
+						))}
 						<div className='account__file' onClick={this.onPopupOpen}>
 							Загрузить
 						</div>
@@ -155,17 +185,22 @@ export default class Editor extends React.Component {
 				>
 					<DialogTitle id="form-dialog-title">Добавить вакансию</DialogTitle>
 					<DialogContent style={{overflowY: 'unset'}}>
-						<input value={this.state.jobName} onChange={this.onInputChange} type='text' name='jobName' className="filter__title"
+						<input value={this.state.jobName} onChange={this.onInputChange} type='text' name='jobName'
+									 className="filter__title"
 									 placeholder='Название вакансии'/>
-						<textarea contentEditable='true' value={this.state.jobDescription} onChange={this.onInputChange} name='jobDescription' className='filter__description'
-											placeholder='Описание вакансии'/>
+						<ReactQuill placeholder='Описание' value={this.state.jobDescription} onChange={this.onDescriptionChange}
+												name='jobDescription' className='filter__description'
+												modules={{toolbar: [[{'list': 'ordered'}, {'list': 'bullet'}]]}}/>
 						<div className="filter__bottom-row">
-							<FilterOneSelect  onSelectChange={this.onSelectChange} value={this.state.jobSpec} data={spec} name='jobSpec'
-														title='Специализации'/>
-							<FilterOneSelect  onSelectChange={this.onSelectChange} value={this.state.jobArea} data={area} name='jobArea'
-														title='Отрасль'/>
-							<FilterOneSelect  onSelectChange={this.onSelectChange} value={this.state.jobCity} data={city} name='jobCity'
-														title='Населенный пункт'/>
+							<FilterOneSelect onSelectChange={this.onSelectChange} value={this.state.jobSpec} data={spec}
+															 name='jobSpec'
+															 title='Специализации'/>
+							<FilterOneSelect onSelectChange={this.onSelectChange} value={this.state.jobArea} data={area}
+															 name='jobArea'
+															 title='Отрасль'/>
+							<FilterOneSelect onSelectChange={this.onSelectChange} value={this.state.jobCity} data={city}
+															 name='jobCity'
+															 title='Населенный пункт'/>
 						</div>
 						<div className="filter__bottom-row">
 							<FormControlLabel
@@ -181,12 +216,14 @@ export default class Editor extends React.Component {
 								label="Оплачиваемая"
 							/>
 							{this.state.isPaid ?
-								<input value={this.state.jobSalary} onChange={this.onInputChange} type='text' name='jobSalary' className="filter__salary"
+								<input value={this.state.jobSalary} onChange={this.onInputChange} type='text' name='jobSalary'
+											 className="filter__salary"
 											 placeholder='Размер зарплаты'/>
 								: ''
 							}
-							<FilterOneSelect mult={false} onSelectChange={this.onSelectChange} data={schedule} value={this.state.jobSchedule}
-														name='jobSchedule' title="График работы"/>
+							<FilterOneSelect mult={false} onSelectChange={this.onSelectChange} data={schedule}
+															 value={this.state.jobSchedule}
+															 name='jobSchedule' title="График работы"/>
 						</div>
 					</DialogContent>
 					<DialogActions>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const StudentCard = (props) => {
-	const { firstName, lastName, year, studyPlace, spec, photo } = props.student;
+	const {firstName, lastName, year, studyPlace, spec, photo} = props.student;
 	return (
 		<div className='student-card'>
 			<div className="student-card__photo" style={{backgroundImage: `url(${photo})`}}/>
@@ -11,7 +11,9 @@ export const StudentCard = (props) => {
 				<div className="student-card__spec">{spec}</div>
 				<div className="student-card__year">{year}</div>
 			</div>
-			<div className="student-card__download" onClick={(e) =>props.click(e, props.student.email)}/>
+			<div className="student-card__download" onClick={(e) => props.click(e, props.student.email)}/>
+			<div className="student-card__chatBtn"
+					 onClick={(e) => props.chat(e, {email: props.student.email, firstName, lastName})}/>
 		</div>
 	)
 };

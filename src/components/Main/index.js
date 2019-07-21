@@ -7,18 +7,18 @@ import Footer from '../Footer';
 import axios from 'axios';
 import connect from 'react-redux/es/connect/connect';
 import {dispatchFilter} from '../../store/actions/filter';
-import {Popup} from './Popup';
+import Popup from './Popup';
 import {Loader} from '../Loader';
 import {ROOT_API} from '../../services/constants';
 
 class Main extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			jobs: [],
 			filteredJobs: [],
 			headSpecs: [],
-			isPopupOpen: false,
+			isJobOpen: false,
 			popupData: {},
 			extendBtn: false,
 		}
@@ -57,8 +57,8 @@ class Main extends React.Component {
 						|| (data.flex && 'flex' === job.schedule)
 						|| (data.remote && 'remote' === job.schedule)) {
 						if (!(data.salary.length)
-							|| (data.salary && data.salary.includes(Math.round(job.salary/10000) + ''))
-					&& (!data.created || new Date(job.created) > postDate[data.created])) {
+							|| (data.salary && data.salary.includes(Math.round(job.salary / 10000) + ''))
+							&& (!data.created || new Date(job.created) > postDate[data.created])) {
 							acc.push(job)
 						}
 					}
@@ -76,14 +76,14 @@ class Main extends React.Component {
 
 	onCardClick = (data) => {
 		this.setState({
-			isPopupOpen: true,
+			isJobOpen: true,
 			popupData: data
 		});
 	};
 
 	onPopupClose = () => {
 		this.setState({
-			isPopupOpen: false
+			isJobOpen: false
 		})
 	};
 
@@ -105,27 +105,35 @@ class Main extends React.Component {
 		if (filteredData.length > 8 && !this.state.extendBtn) {
 			filteredData = filteredData.slice(0, 7);
 		}
+
 		return <div>
 			<Header {...this.props}/>
 			<div className="main-top">
 				<div className="container">
 					<div className="main-top__title">Планирование карьеры</div>
 					<div className="main-top__subtitle">Мост в профессиональную деятельность</div>
-					<Filter onHeadSpecs={this.onHeadSpecs} filterAction={dispatchFilter}/>
+					{this.state.isJobOpen ? ''
+						: <Filter onHeadSpecs={this.onHeadSpecs} filterAction={dispatchFilter}/>}
 				</div>
 			</div>
 			<div className="main-bottom container">
-				{this.state.jobs.length
-				? <div className="main-bottom__section">
-							{!filteredData.length ? <div className='main-bottom__empty'>Нет подходящих вакансий</div> : <div className="main-bottom__title">Новые вакансии</div>}
-						<div className="main-bottom__list">
-							{filteredData.map((job, idx) => <Card onCardClick={() =>this.onCardClick(job)} key={idx} title={job.name} company={job.company}
-																										img={job.companyImg}/>)}
-							{filteredData.length === 7 && !this.state.extendBtn ? <div onClick={this.onExtendClick} className="main-bottom__extra">Посмотреть еще</div> : ''}
+				{!this.state.isJobOpen ?
+					this.state.jobs.length
+						? <div className="main-bottom__section">
+							{!filteredData.length ? <div className='main-bottom__empty'>Нет подходящих вакансий</div> :
+								<div className="main-bottom__title">Новые вакансии</div>}
+							<div className="main-bottom__list">
+								{filteredData.map((job, idx) => <Card onCardClick={() => this.onCardClick(job)} key={idx} title={job.name}
+																											company={job.company}
+																											img={job.companyImg}/>)}
+								{filteredData.length === 7 && !this.state.extendBtn ?
+									<div onClick={this.onExtendClick} className="main-bottom__extra">Посмотреть еще</div> : ''}
+							</div>
 						</div>
-					</div>
-				: <Loader />}
-				<Popup isOpen={this.state.isPopupOpen} onSubmit={this.onCallBack} data={this.state.popupData} onClose={this.onPopupClose}/>
+						: <Loader/>
+					: <Popup currentUser={this.props.currentUser} isOpen={this.state.isJobOpen} onSubmit={this.onCallBack} data={this.state.popupData}
+									 onClose={this.onPopupClose}/>}
+
 			</div>
 			<Footer/>
 		</div>
