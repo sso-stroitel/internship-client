@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9874cd5-920d-435d-8cb7-9d1a44938dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/Articles/article2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/static/Articles/article2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/Articles/article3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/static/Articles/article3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Footer/call.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/call.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Footer/instagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/instagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Footer/mail.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/mail.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Footer/twitter-logo-silhouette.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Footer/twitter-logo-silhouette.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Main/controls.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/Main/controls.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/constants.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +131,7 @@
       <workItem from="1568920727308" duration="1254000" />
       <workItem from="1568995356742" duration="1302000" />
       <workItem from="1569593363538" duration="5939000" />
-      <workItem from="1569863885755" duration="1312000" />
+      <workItem from="1569863885755" duration="1761000" />
     </task>
     <task id="LOCAL-00001" summary="Base commit">
       <created>1558183772849</created>
@@ -224,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563726576474</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="docker add">
+      <created>1569873523255</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569873523255</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -262,6 +255,7 @@
     <MESSAGE value="resume upload and download" />
     <MESSAGE value="messages and some fix" />
     <MESSAGE value="fix message" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix message" />
+    <MESSAGE value="docker add" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker add" />
   </component>
 </project>
