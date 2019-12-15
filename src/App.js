@@ -11,6 +11,7 @@ import { ArticleList } from './components/Articles/ArticlesList';
 import {Article} from './components/Articles/Article';
 import Students from './components/Students';
 import 'react-quill/dist/quill.snow.css';
+import {Education} from './components/Education/Education';
 
 
 const App = props => {
@@ -36,6 +37,9 @@ const App = props => {
 		}/>
 		<Route path='/articles' exact render={props => {
 			return (<ArticleList currentUser={currentUser} errors={errors} {...props}/>)
+		}} />
+		<Route path='/education' render={props => {
+			return (<Education currentUser={currentUser} errors={errors} {...props}/>)
 		}} />
 		<Route path='/articles/grid/:id' render={props => {
 			return (<Article isGrid={true} currentUser={currentUser} errors={errors} {...props}/>)

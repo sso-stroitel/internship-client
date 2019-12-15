@@ -113,9 +113,7 @@ export default class Filter extends React.Component {
 				</form>
 			</div>
 			<div className={`filter__toggle ${this.state.isToggleOpen ? 'is-open' : ''}`} onClick={this.onToggleClick}>
-				<div className="filter__toggle-icon"></div>
-				Фильтр
-				<div className="filter__toggle-arrow"></div>
+				Фильтры
 			</div>
 		</div>
 	}

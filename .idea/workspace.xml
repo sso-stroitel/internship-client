@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9874cd5-920d-435d-8cb7-9d1a44938dcf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Education/Education.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Education/EducationCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Education/EducationData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Education/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageTitle/PageTitle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageTitle/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/Main/main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/titleback.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Account/Company/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/Company/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Filter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Filter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Registration/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Registration/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Registration/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Registration/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/constants.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +37,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/Education/EducationCard.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1OxFzG4QkEWDmzhCUI2PUD8xiNM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -30,6 +57,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$USER_HOME$/.nvm/versions/node/v10.13.0/lib/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -41,11 +69,11 @@
       <recent name="$PROJECT_DIR$/src/store" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/static" />
       <recent name="$PROJECT_DIR$/src/static/Main" />
       <recent name="$PROJECT_DIR$/src/static/Articles" />
       <recent name="$PROJECT_DIR$/src/static/Header" />
       <recent name="$PROJECT_DIR$/src/components/Account/Company" />
-      <recent name="$PROJECT_DIR$/src/static/Account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -131,7 +159,22 @@
       <workItem from="1568920727308" duration="1254000" />
       <workItem from="1568995356742" duration="1302000" />
       <workItem from="1569593363538" duration="5939000" />
-      <workItem from="1569863885755" duration="1761000" />
+      <workItem from="1569863885755" duration="2683000" />
+      <workItem from="1570171047050" duration="804000" />
+      <workItem from="1570963009293" duration="1568000" />
+      <workItem from="1572791359443" duration="35000" />
+      <workItem from="1572791396949" duration="2103000" />
+      <workItem from="1573293297493" duration="48000" />
+      <workItem from="1573293347384" duration="4802000" />
+      <workItem from="1573978679486" duration="4581000" />
+      <workItem from="1574182044413" duration="1111000" />
+      <workItem from="1574439632226" duration="3155000" />
+      <workItem from="1574832208203" duration="25000" />
+      <workItem from="1574832358536" duration="1282000" />
+      <workItem from="1575004283278" duration="1054000" />
+      <workItem from="1575182424126" duration="5522000" />
+      <workItem from="1575293505448" duration="6275000" />
+      <workItem from="1576165414897" duration="4271000" />
     </task>
     <task id="LOCAL-00001" summary="Base commit">
       <created>1558183772849</created>
@@ -217,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569873523255</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="change url">
+      <created>1569874077873</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569874077873</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -256,6 +306,7 @@
     <MESSAGE value="messages and some fix" />
     <MESSAGE value="fix message" />
     <MESSAGE value="docker add" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker add" />
+    <MESSAGE value="change url" />
+    <option name="LAST_COMMIT_MESSAGE" value="change url" />
   </component>
 </project>

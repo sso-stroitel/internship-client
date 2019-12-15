@@ -1,5 +1,6 @@
 import React from 'react';
-import {Input} from '../FormControls/Input'
+// import {Input} from '../FormControls/Input'
+import { TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 
@@ -44,10 +45,11 @@ export default class Sidebar extends React.Component {
 		return <div className={`sidebar ${this.props.isOpen ? 'is-open' : ''}`}>
 			<form onSubmit={this.onSubmit}>
 				<div className={this.state.showError ? 'show-error' : 'show-error-hidden'}>Неправильный email или пароль</div>
-				<Input label='Email' onChange={this.onInputChange} value={this.state.email} style={{color: '#fff', marginBottom: '30px', fontSize: '18px'}} name='email'/>
-				<Input label='Пароль' type='password' onChange={this.onInputChange} value={this.state.pass} style={{color: '#fff', marginBottom: '30px', fontSize: '18px'}} name='pass'/>
+				<TextField label='Email' onChange={this.onInputChange} value={this.state.email} style={{color: '#fff', marginBottom: '30px', fontSize: '18px', width: '100%'}} name='email'/>
+				<TextField label='Пароль' type='password' onChange={this.onInputChange} value={this.state.pass} style={{color: '#fff', marginBottom: '30px', fontSize: '18px', width: '100%'}} name='pass'/>
 				<button type='submit' className='login'>Войти</button>
 			</form>
+			<h2 className='reg-question'>Еще нет аккаунта?</h2>
 			<Link to='/signup/'>
 				<button className='reg'>Регистрация</button>
 			</Link>

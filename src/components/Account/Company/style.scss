@@ -149,69 +149,6 @@
 }
 
 .filter {
-  position: relative;
-  width: 830px;
-  margin: 0 auto;
-
-  &__top {
-    height: 75px;
-    padding: 15px 40px 0;
-    background-color: #334062;
-    border-radius: 5px;
-  }
-
-  &__btns {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  &__btn {
-    background-color: #fff;
-    padding: 5px 10px;
-    font-size: 16px;
-    line-height: 19px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    color: #292929;
-    cursor: pointer;
-  }
-
-  &__toggle {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 165px;
-    height: 30px;
-    padding: 0 20px;
-    border: 1px solid #FFFFFF;
-    border-radius: 20px;
-    background-color: #334062;
-    transform: translate(-50%, 50%);
-    cursor: pointer;
-
-    &-icon {
-      width: 20px;
-      height: 20px;
-      background: url("/static/Main/controls.svg") no-repeat center;
-    }
-
-    &-arrow {
-      width: 12px;
-      height: 12px;
-      border-width: 0 2px 2px 0;
-      border-style: solid;
-      border-color: #fff;
-      transform: translateY(-4px) rotate(45deg);
-    }
-
-    &.is-open .filter__toggle-arrow {
-      transform: translateY(4px) rotate(225deg);
-    }
-  }
 
   &__salary {
     border: 1px solid rgba(0, 0, 0, 0.23);
