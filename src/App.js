@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Main from './components/Main';
 import Registration from './components/Registration'
 import {Route, withRouter} from 'react-router-dom';
@@ -12,12 +12,13 @@ import {Article} from './components/Articles/Article';
 import Students from './components/Students';
 import 'react-quill/dist/quill.snow.css';
 import {Education} from './components/Education/Education';
+import Companies from './components/Companies';
 
 
 const App = props => {
 	const {authUser, errors, removeError, currentUser, updateUser} = props;
 	const isCompany = currentUser.user && currentUser.user.company;
-	return (<div>
+	return (<Fragment>
 		<Route path='/' exact render={props => {
 			return isCompany ? (<Students onAuth={authUser} removeError={removeError} currentUser={currentUser} errors={errors} {...props}/>) :
 				(<Main onAuth={authUser} removeError={removeError} currentUser={currentUser} errors={errors} {...props}/>)
@@ -41,13 +42,16 @@ const App = props => {
 		<Route path='/education' render={props => {
 			return (<Education currentUser={currentUser} errors={errors} {...props}/>)
 		}} />
+		<Route path='/company-list' render={props => {
+			return (<Companies currentUser={currentUser} errors={errors} {...props}/>)
+		}} />
 		<Route path='/articles/grid/:id' render={props => {
 			return (<Article isGrid={true} currentUser={currentUser} errors={errors} {...props}/>)
 		}}/>
 		<Route path='/articles/list/:id' render={props => {
 			return (<Article isGrid={false}  currentUser={currentUser} errors={errors} {...props}/>)
 		}}/>
-	</div>)
+	</Fragment>)
 };
 
 function mapStateToProps(state) {

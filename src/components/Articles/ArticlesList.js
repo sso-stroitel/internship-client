@@ -4,12 +4,13 @@ import Footer from '../Footer';
 import './style.scss';
 import {gridArticles, listArticles} from './articleData';
 import {Link} from 'react-router-dom';
+import {PageTitle} from '../PageTitle/PageTitle';
 
 export const ArticleList = (props) => {
 	return (<div className='article-list'>
 		<Header {...props}/>
+		<PageTitle title='Полезные материалы'/>
 		<div className="article-list__body container">
-			<div className="article-list__title">Статьи</div>
 			<div className="article-list__grid">
 				{gridArticles.map(article => (
 					<Link to={`/articles/grid/${article.id}/`} className="article-list__grid-item" key={article.id}>

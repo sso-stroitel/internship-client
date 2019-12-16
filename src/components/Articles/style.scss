@@ -1,14 +1,7 @@
 .article-list {
   &__body {
-    padding-top: 80px;
+    padding-top: 50px;
     min-height: calc(100vh - 60px);
-  }
-
-  &__title {
-    font-weight: bold;
-    font-size: 26px;
-    margin: 0 0 40px 10px;
-    color: #242424;
   }
 
   &__grid {

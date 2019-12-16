@@ -45,12 +45,15 @@ export const postTime = {
 };
 
 export const city = {
-	astrakhan: 'Астрахань',
-	akhtubinsk: 'Ахтубинск',
-	kharabali: 'Харабали',
-	cherniy: 'Черный Яр',
-	kamizak: 'Камызяк',
-	enotaevka: 'Енотаевка'
+	astrakhan: 'г. Астрахань',
+	akhtubinsk: 'Ахтубинская район',
+	kharabali: 'Харабалинский район ',
+	cherniy: 'Черноярский район',
+	kamizak: 'Камызякский район',
+	enotaevka: 'Енотаевский район',
+	volodar: 'Володарский район',
+	nariman: 'Наримановский район',
+	privol: 'Приволжский район',
 };
 
 export const salary = {
