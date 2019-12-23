@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9874cd5-920d-435d-8cb7-9d1a44938dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Companies/companiesCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Companies/companyImages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Companies/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Companies/style.scss" afterDir="false" />
+    <list default="true" id="b9874cd5-920d-435d-8cb7-9d1a44938dcf" name="Default Changelist" comment="change url">
+      <change afterPath="$PROJECT_DIR$/src/components/Companies/companiesDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Articles/ArticlesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Articles/ArticlesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Articles/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Articles/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/jobData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/jobData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Account/Company/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account/Company/Editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Companies/companiesCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Companies/companiesCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Companies/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Companies/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Companies/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Companies/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Education/Education.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Education/Education.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormControls/Select/FilterSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormControls/Select/FilterSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Registration/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Registration/index.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +20,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/Education/EducationCard.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1OxFzG4QkEWDmzhCUI2PUD8xiNM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -61,19 +67,17 @@
       <recent name="$PROJECT_DIR$/src/components/Account/Company" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="webpack" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -86,9 +90,22 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.webpack" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -159,7 +176,14 @@
       <workItem from="1575004283278" duration="1054000" />
       <workItem from="1575182424126" duration="5522000" />
       <workItem from="1575293505448" duration="6275000" />
-      <workItem from="1576165414897" duration="16390000" />
+      <workItem from="1576165414897" duration="4271000" />
+      <workItem from="1576502815462" duration="2587000" />
+      <workItem from="1576562575538" duration="1080000" />
+      <workItem from="1576569015234" duration="326000" />
+      <workItem from="1576569954779" duration="5130000" />
+      <workItem from="1576955911794" duration="794000" />
+      <workItem from="1576998462674" duration="6475000" />
+      <workItem from="1577034826926" duration="2594000" />
     </task>
     <task id="LOCAL-00001" summary="Base commit">
       <created>1558183772849</created>
@@ -252,24 +276,8 @@
       <option name="project" value="LOCAL" />
       <updated>1569874077873</updated>
     </task>
-    <task id="LOCAL-00014" summary="refactor">
-      <created>1576385971393</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1576385971393</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -299,7 +307,44 @@
     <MESSAGE value="fix message" />
     <MESSAGE value="docker add" />
     <MESSAGE value="change url" />
-    <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="change url" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="40" key="CommitChangelistDialog2" timestamp="1576998472985">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="421" y="40" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1576998472985" />
+    <state width="1659" height="268" key="GridCell.Tab.0.bottom" timestamp="1577027238134">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="268" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1577027238134" />
+    <state width="1659" height="268" key="GridCell.Tab.0.center" timestamp="1577027238132">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="268" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1577027238132" />
+    <state width="1659" height="268" key="GridCell.Tab.0.left" timestamp="1577027238132">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="268" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1577027238132" />
+    <state width="1659" height="268" key="GridCell.Tab.0.right" timestamp="1577027238133">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="268" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1577027238133" />
+    <state x="168" y="94" key="MergeDialog" timestamp="1576502909213">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1576502909213" />
+    <state x="551" y="248" key="MultipleFileMergeDialog" timestamp="1576502913124">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="551" y="248" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1576502913124" />
+    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576502858996">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1576502858996" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1577024187793">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1577024187793" />
   </component>
 </project>

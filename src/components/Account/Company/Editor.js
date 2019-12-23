@@ -5,7 +5,7 @@ import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/co
 import FilterSelect from '../../FormControls/Select/FilterSelect';
 import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
 import Switch from '@material-ui/core/Switch/Switch';
-import {schedule, spec, area, city, salary} from '../../../services/jobData';
+import {schedule, spec, area, city, salary, area as dataArea} from '../../../services/jobData';
 import {apiCall} from '../../../services/api';
 import FilterOneSelect from '../../FormControls/Select/FilterOneSelect';
 import axios from 'axios';
@@ -27,6 +27,7 @@ export default class Editor extends React.Component {
 			area: '',
 			phone: '',
 			companyImg: '',
+			city: '',
 			jobs: [],
 			jobName: '',
 			jobDescription: '',
@@ -57,6 +58,7 @@ export default class Editor extends React.Component {
 			self.setState({
 				company: res.company,
 				area: res.area,
+				city: res.city,
 				phone: res.phone,
 				companyImg: res.companyImg,
 				...(res.jobs && {jobs: res.jobs}),
@@ -111,6 +113,7 @@ export default class Editor extends React.Component {
 			email: this.props.currentUser.user.email,
 			company: this.state.company,
 			area: this.state.area,
+			city: this.state.city,
 			phone: this.state.phone,
 			companyImg: this.state.companyImg,
 		}
@@ -154,9 +157,8 @@ export default class Editor extends React.Component {
 						<Input disabled={this.state.isDisabledInput} label='Наименование организации' inputStyle={inputStyles}
 									 name='company' value={this.state.company}
 									 onChange={this.onInputChange}/>
-						<Input disabled={this.state.isDisabledInput} label='Сфера деятельности' inputStyle={inputStyles} name='area'
-									 value={this.state.area}
-									 onChange={this.onInputChange}/>
+						<FilterSelect disabled={this.state.isDisabledInput} onSelectChange={this.onSelectChange} isWide={true} value={this.state.area} data={dataArea} name='area' title='Отрасль' mult={false}/>
+						<FilterSelect disabled={this.state.isDisabledInput} onSelectChange={this.onSelectChange} isWide={true} value={this.state.city} data={city} name='city' title='Район' mult={false}/>
 						<Input disabled={this.state.isDisabledInput} label='Контактный номер' inputStyle={inputStyles} name='phone'
 									 value={this.state.phone}
 									 onChange={this.onInputChange}/>

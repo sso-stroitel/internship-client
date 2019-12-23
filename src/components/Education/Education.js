@@ -50,7 +50,7 @@ export const Education = (props) => {
 		: universitiesArr.map(card => <EducationCard card={card} key={card.id} />);
 	return (<div className='education'>
 		<Header {...props}/>
-		<PageTitle title='Обрзовательные организации'/>
+		<PageTitle title='Образовательные организации'/>
 		<div className="container education-cards__wrap">
 			<AppBar position="static" className={classes.root}>
 				<Tabs

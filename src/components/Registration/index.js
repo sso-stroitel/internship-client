@@ -3,6 +3,8 @@ import './style.scss';
 import {Input} from '../FormControls/Input';
 import {validationText} from '../../services/validation'
 import {RegHeader} from './RegHeader';
+import {area as dataArea, city} from '../../services/jobData';
+import FilterSelect from '../FormControls/Select/FilterSelect';
 
 
 class Registration extends React.Component {
@@ -16,7 +18,8 @@ class Registration extends React.Component {
 			lastName: '',
 			study: '',
 			company: '',
-			area: '',
+			area: 'bank',
+			city: 'astrakhan',
 			isErrorShow: false,
 			validEmail: '',
 			validPass: '',
@@ -24,7 +27,6 @@ class Registration extends React.Component {
 			validLastName: '',
 			validStudy: '',
 			validCompany: '',
-			validArea: '',
 			validSpec: '',
 		}
 	}
@@ -38,7 +40,8 @@ class Registration extends React.Component {
 			lastName: '',
 			study: '',
 			company: '',
-			area: '',
+			area: 'bank',
+			city: 'astrakhan',
 			spec: '',
 			isErrorShow: false,
 			validEmail: '',
@@ -47,7 +50,6 @@ class Registration extends React.Component {
 			validLastName: '',
 			validStudy: '',
 			validCompany: '',
-			validArea: '',
 			validSpec: '',
 		}))
 
@@ -56,15 +58,21 @@ class Registration extends React.Component {
 	onInputChange = ({target}) => {
 		this.setState({
 			[target.name]: target.value
-		}, ()=>{
+		}, () => {
 			if (this.state.isErrorShow) {
 				this.validText();
 			}
 		});
 	};
 
+	onSelectChange = ({target}) => {
+		this.setState({
+			[target.name]: target.value
+		})
+	}
+
 	validText = () => {
-		const {email, pass, firstName, lastName, study, spec, company, area} = this.state;
+		const {email, pass, firstName, lastName, study, spec, company} = this.state;
 		this.setState({
 			validPass: pass.length < 6 ? validationText.wrongPassword : '',
 			validEmail: !/\S+@\S+\.\S+/.test(email) ? validationText.wrongEmail : '',
@@ -73,7 +81,6 @@ class Registration extends React.Component {
 			validStudy: this.state.isStudent && study.length < 1 ? validationText.requiredField : '',
 			validSpec: !this.state.isStudent && spec.length < 1 ? validationText.requiredField : '',
 			validCompany: !this.state.isStudent && company.length < 1 ? validationText.requiredField : '',
-			validArea: !this.state.isStudent && area.length < 1  ? validationText.requiredField : '',
 		})
 	};
 
@@ -89,7 +96,8 @@ class Registration extends React.Component {
 				...(this.state.study && {studyPlace: this.state.study}),
 				...(this.state.spec && {spec: this.state.spec}),
 				...(this.state.company && {company: this.state.company}),
-				...(this.state.area && {area: this.state.area})
+				...(this.state.area && {area: this.state.area}),
+				...(this.state.city && {city: this.state.city}),
 			};
 			const authType = this.props.signUp ? "signup" : "signin";
 			this.props
@@ -110,7 +118,7 @@ class Registration extends React.Component {
 		});
 		this.validText();
 		const {email, pass} = this.state;
-		if (!/\S+@\S+\.\S+/.test(email) || pass.length < 6 ) {
+		if (!/\S+@\S+\.\S+/.test(email) || pass.length < 6) {
 			return 'INVALID'
 		}
 		if (this.state.isStudent) {
@@ -126,8 +134,8 @@ class Registration extends React.Component {
 	};
 
 	companyValid = () => {
-		const {area, company} = this.state;
-		return !!(area && company);
+		const {company} = this.state;
+		return !!company;
 	};
 
 	render() {
@@ -142,18 +150,20 @@ class Registration extends React.Component {
 			? <Input validText={this.state.validFirstName} label='Имя' name='firstName' onChange={this.onInputChange}
 							 value={this.state.firstName}/>
 			:
-			<Input validText={this.state.validArea} label='Сфера деятельности' name='area' onChange={this.onInputChange}
-						 value={this.state.area}/>;
+			<FilterSelect onSelectChange={this.onSelectChange} isWide={true} value={this.state.area} data={dataArea}
+										name='area' title='Отрасль' mult={false}/>;
+		extraThirdField = this.state.isStudent
+			? <Input validText={this.state.validLastName} label='Фамилия' name='lastName' onChange={this.onInputChange}
+							 value={this.state.lastName}/>
+			: <FilterSelect onSelectChange={this.onSelectChange} isWide={true} value={this.state.city} data={city}
+											name='city' title='Район' mult={false}/>;
 		if (this.state.isStudent) {
-			extraThirdField =
-				<Input validText={this.state.validLastName} label='Фамилия' name='lastName' onChange={this.onInputChange}
-							 value={this.state.lastName}/>;
 			extraFourthField =
 				<Input label='Специальность (если есть)' name='spec'
 							 onChange={this.onInputChange} value={this.state.spec}/>
 		}
 		return <div className='registration'>
-			<RegHeader />
+			<RegHeader/>
 			<form onSubmit={this.onSubmit} className="registration__form">
 				<div className="registration__choices">
 					<div>
